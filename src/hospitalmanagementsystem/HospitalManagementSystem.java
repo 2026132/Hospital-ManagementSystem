@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -46,6 +47,24 @@ public class HospitalManagementSystem {
 
             System.out.println("File read successfully!");
             System.out.println("Total employees: " + employees.size());
+
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("\nEnter employee name to search: ");
+            String searchName = scanner.nextLine();
+
+            EmployeeSearch search = new EmployeeSearch();
+
+            Employee result = search.searchEmployee(employees, searchName, 0);
+
+            if (result != null) {
+                System.out.println("\nEmployee found:");
+                System.out.println("-----------------------------");
+                result.displayEmployee();
+                System.out.println("-----------------------------");
+            } else {
+                System.out.println("Employee not found.");
+            }
 
         } catch (IOException e) {
             System.out.println("Error reading file.");
