@@ -29,8 +29,12 @@ public class HospitalManagementSystem {
                 String[] data = line.split(",");
 
                 String name = data[0];
-                String managerType = data[1];
-                String department = data[2];
+
+                ManagerType managerType = ManagerType.valueOf(
+                        data[1].toUpperCase().replace(" ", "_"));
+
+                DepartmentType department = DepartmentType.valueOf(
+                        data[2].toUpperCase());
 
                 Employee employee = new Employee(
                         name, managerType, department);
