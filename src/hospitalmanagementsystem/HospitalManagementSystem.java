@@ -48,23 +48,25 @@ public class HospitalManagementSystem {
             System.out.println("File read successfully!");
             System.out.println("Total employees: " + employees.size());
 
+            EmployeeSorter sorter = new EmployeeSorter();
+
+            sorter.mergeSort(employees, 0, employees.size() - 1);
+
+            HospitalMenu menu = new HospitalMenu();
+
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("\nEnter employee name to search: ");
-            String searchName = scanner.nextLine();
+            int choice;
 
-            EmployeeSearch search = new EmployeeSearch();
+            do {
+                menu.displayMenu();
 
-            Employee result = search.searchEmployee(employees, searchName, 0);
+                choice = scanner.nextInt();
+                scanner.nextLine();
 
-            if (result != null) {
-                System.out.println("\nEmployee found:");
-                System.out.println("-----------------------------");
-                result.displayEmployee();
-                System.out.println("-----------------------------");
-            } else {
-                System.out.println("Employee not found.");
-            }
+            } while (choice != 6);
+
+            System.out.println("Program terminated.");
 
         } catch (IOException e) {
             System.out.println("Error reading file.");
