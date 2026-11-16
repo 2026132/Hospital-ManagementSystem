@@ -8,14 +8,13 @@ package hospitalmanagementsystem;
  *
  * @author ander
  */
-
 public class Employee {
 
     private String name;
-    private String managerType;
-    private String department;
+    private ManagerType managerType;
+    private DepartmentType department;
 
-    public Employee(String name, String managerType, String department) {
+    public Employee(String name, ManagerType managerType, DepartmentType department) {
         this.name = name;
         this.managerType = managerType;
         this.department = department;
@@ -25,11 +24,11 @@ public class Employee {
         return name;
     }
 
-    public String getManagerType() {
+    public ManagerType getManagerType() {
         return managerType;
     }
 
-    public String getDepartment() {
+    public DepartmentType getDepartment() {
         return department;
     }
 
@@ -39,4 +38,3 @@ public class Employee {
         System.out.println("Department: " + department);
     }
 }
-
