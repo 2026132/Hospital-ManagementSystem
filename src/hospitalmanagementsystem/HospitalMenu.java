@@ -26,6 +26,8 @@ public class HospitalMenu {
         Scanner scanner = new Scanner(System.in);
         EmployeeDisplay display = new EmployeeDisplay();
         EmployeeSearch search = new EmployeeSearch();
+        EmployeeRegistration registration = new EmployeeRegistration();
+        EmployeeSorter sorter = new EmployeeSorter();
 
         int choice;
 
@@ -44,6 +46,17 @@ public class HospitalMenu {
 
                 case 2:
                     search.searchAndDisplayEmployee(employees, scanner);
+                    break;
+
+                case 3:
+                    registration.registerEmployee(employees, scanner);
+                    break;
+
+                case 4:
+                    sorter.mergeSort(employees, 0, employees.size() - 1);
+
+                    System.out.println("Employees sorted successfully!");
+                    display.displayAllEmployees(employees);
                     break;
 
                 case 6:
