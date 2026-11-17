@@ -29,14 +29,20 @@ public class HospitalMenu {
         EmployeeRegistration registration = new EmployeeRegistration();
         EmployeeSorter sorter = new EmployeeSorter();
 
-        int choice;
+        int choice = 0;
 
         do {
 
             displayMenu();
 
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("Invalid choice. Please enter a number.");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (choice) {
 
@@ -81,7 +87,7 @@ public class HospitalMenu {
                     break;
 
                 default:
-                    System.out.println("Option not implemented yet.");
+                    System.out.println("Please, select one of options avaiable");
             }
 
         } while (choice != 6);
