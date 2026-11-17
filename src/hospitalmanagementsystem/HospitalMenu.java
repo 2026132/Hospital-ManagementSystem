@@ -54,9 +54,26 @@ public class HospitalMenu {
 
                 case 4:
                     sorter.mergeSort(employees, 0, employees.size() - 1);
-
                     System.out.println("Employees sorted successfully!");
-                    display.displayAllEmployees(employees);
+                    display.displayFirst20Employees(employees);
+                    break;
+
+                case 5:
+                    EmployeeBinaryTree tree = new EmployeeBinaryTree();
+
+                    for (ManagerType type : ManagerType.values()) {
+                        for (Employee employee : employees) {
+                            if (employee.getManagerType() == type) {
+                                tree.insertEmployee(employee);
+                            }
+                        }
+                    }
+
+                    tree.displayLevelOrder();
+
+                    System.out.println("\nTotal employees in tree: " + tree.countNodes());
+                    System.out.println("Tree height: " + tree.getHeight());
+
                     break;
 
                 case 6:
