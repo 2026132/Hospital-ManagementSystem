@@ -44,27 +44,35 @@ public class HospitalMenu {
                 continue;
             }
 
-            switch (choice) {
+            HospitalMenuOption selectedOption
+                    = HospitalMenuOption.fromOption(choice);
 
-                case 1:
+            if (selectedOption == null) {
+                System.out.println("Invalid option. Please choose between 1 and 6.");
+                continue;
+            }
+
+            switch (selectedOption) {
+
+                case DISPLAY_ALL_EMPLOYEES:
                     display.displayAllEmployees(employees);
                     break;
 
-                case 2:
+                case SEARCH_EMPLOYEE:
                     search.searchAndDisplayEmployee(employees, scanner);
                     break;
 
-                case 3:
+                case ADD_EMPLOYEE:
                     registration.registerEmployee(employees, scanner);
                     break;
 
-                case 4:
+                case SORT_EMPLOYEES:
                     sorter.mergeSort(employees, 0, employees.size() - 1);
                     System.out.println("Employees sorted successfully!");
                     display.displayFirst20Employees(employees);
                     break;
 
-                case 5:
+                case DISPLAY_BINARY_TREE:
                     EmployeeBinaryTree tree = new EmployeeBinaryTree();
 
                     for (ManagerType type : ManagerType.values()) {
@@ -79,12 +87,10 @@ public class HospitalMenu {
 
                     break;
 
-                case 6:
+                case EXIT:
                     System.out.println("Program terminated.");
                     break;
 
-                default:
-                    System.out.println("Please, select one of options avaiable");
             }
 
         } while (choice != 6);
