@@ -77,9 +77,6 @@ public class HospitalMenu {
 
                     tree.displayLevelOrder();
 
-                    System.out.println("\nTotal employees in tree: " + tree.countNodes());
-                    System.out.println("Tree height: " + tree.getHeight());
-
                     break;
 
                 case 6:
